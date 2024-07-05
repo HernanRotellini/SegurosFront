@@ -4,35 +4,35 @@ import {Link as ScrollLink} from 'react-scroll';
 const SERVICES_CARDS = [
   {
     name: "Seguros",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Vehicular",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Hogar",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Mala práxis",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Sepelios",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Riesgo Cibernético",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "ART Caución",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Salud",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
 ];
 
