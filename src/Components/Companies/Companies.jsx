@@ -6,39 +6,39 @@ import { Autoplay } from "swiper/modules";
 const companies = [
   {
     name: "Sancor Seguros",
-    image: "/img/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Grupo Sancor Seguros",
-    image: "/img/grupo-sancor-seguros.jpeg",
+    image: "/grupo-sancor-seguros.jpeg",
   },
   {
     name: "Seguros Rivadavia",
-    image: "/img/rivadavia-seguros.jpeg",
+    image: "/rivadavia-seguros.jpeg",
   },
   {
     name: "Galeno Seguros",
-    image: "/img/galeno-seguros.png",
+    image: "/galeno-seguros.png",
   },
   {
     name: "Galicia Seguros",
-    image: "/img/galicia-seguros.png",
+    image: "/galicia-seguros.png",
   },
   {
     name: "Prevención ART",
-    image: "/img/prevencion-art.jpg",
+    image: "/prevencion-art.jpg",
   },
   {
     name: "Galeno ART",
-    image: "/img/galeno-art.jpg",
+    image: "/galeno-art.jpg",
   },
   {
     name: "Prevención Salud",
-    image: "/img/prevencion-salud.jpg",
+    image: "/prevencion-salud.jpg",
   },
   {
     name: "InSur Seguros",
-    image: "/img/insur-seguros.png",
+    image: "/insur-seguros.png",
   },
 ];
 
