@@ -24,7 +24,7 @@ const SERVICES_CARDS = [
   },
   {
     name: "Riesgo Cibernético",
-    image: "/sancor-seguros.png",
+    image: "/cibernetico.jpg",
   },
   {
     name: "ART Caución",
