@@ -32,7 +32,7 @@ const SERVICES_CARDS = [
   },
   {
     name: "Salud",
-    image: "/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
 ];
 
