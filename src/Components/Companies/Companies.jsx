@@ -6,7 +6,7 @@ import { Autoplay } from "swiper/modules";
 const companies = [
   {
     name: "Sancor Seguros",
-    image: "/build/sancor-seguros.png",
+    image: "/sancor-seguros.png",
   },
   {
     name: "Grupo Sancor Seguros",
