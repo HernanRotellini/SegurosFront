@@ -12,7 +12,7 @@ const SERVICES_CARDS = [
   },
   {
     name: "Hogar",
-    image: "/sancor-seguros.png",
+    image: "/hogar.jpg",
   },
   {
     name: "Mala práxis",
@@ -28,7 +28,7 @@ const SERVICES_CARDS = [
   },
   {
     name: "ART Caución",
-    image: "/sancor-seguros.png",
+    image: "/caucion.jpg",
   },
   {
     name: "Salud",
