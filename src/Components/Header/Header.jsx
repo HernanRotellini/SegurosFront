@@ -40,7 +40,7 @@ const Header = ({activeSection, setActiveSection}) => {
         onSetActive={handleSetActive}
       >
         <img
-          src="/img/seguros-icon.svg"
+          src="/seguros-icon.svg"
           alt="icon"
           className="h-14 min-[400px]:h-20 cursor-pointer"
           onClick={() => setActiveSection("home")}
