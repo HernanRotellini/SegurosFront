@@ -96,9 +96,11 @@ const Contact = ({ subject, setSubject }) => {
     // }
     try {
       const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
+        referrerPolicy: "unsafe-url",
         method: "POST",
         body: formData
       })
+    
       toast.promise(responsePromise, {
         loading: "Enviando...",
         success: "Mensaje enviado",
