@@ -85,8 +85,8 @@ const Contact = ({ subject, setSubject }) => {
     formData.append("message", input.message);
     formData.append("bool", containKey);
     if (files.length > 0) {
-      files.forEach((file) => {
-        formData.append("files[]", file);
+      files.forEach(async (file) => {
+       await formData.append("files[]", file);
       });
     }
     // if (files.length > 0) {
