@@ -4,7 +4,7 @@ import {Link as ScrollLink} from 'react-scroll';
 const SERVICES_CARDS = [
   {
     name: "Seguros",
-    image: "/sancor-seguros.png",
+    image: "/build/sancor-seguros.png",
   },
   {
     name: "Vehicular",
