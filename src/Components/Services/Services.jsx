@@ -3,7 +3,7 @@ import {Link as ScrollLink} from 'react-scroll';
 
 const SERVICES_CARDS = [
   {
-    name: "Denuncia siniestros",
+    name: "Denuncia Siniestros",
     image: "/siniestroVehicular.jpg",
   },
   {
@@ -15,7 +15,7 @@ const SERVICES_CARDS = [
     image: "/hogar.jpg",
   },
   {
-    name: "Mala práxis",
+    name: "Mala Práxis",
     image: "/sancor-seguros.png",
   },
   {
