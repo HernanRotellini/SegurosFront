@@ -3,7 +3,7 @@ import {Link as ScrollLink} from 'react-scroll';
 
 const SERVICES_CARDS = [
   {
-    name: "Siniestro vehicular",
+    name: "Denuncia siniestros",
     image: "/siniestroVehicular.jpg",
   },
   {
