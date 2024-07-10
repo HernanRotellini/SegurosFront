@@ -101,11 +101,11 @@ const Contact = ({ subject, setSubject }) => {
         if (key === 'files[]') {
           console.log('Files:', value); // This logs the array of uploaded files
           // You can further iterate through the 'value' array to access each file object
-          value.forEach(file => {
-            console.log('File name:', file.name);
-            console.log('File size:', file.size);
-            // Access other file properties as needed
-          });
+          // value.forEach(file => {
+          //   console.log('File name:', file.name);
+          //   console.log('File size:', file.size);
+          //   // Access other file properties as needed
+          // });
         }
       }
       toast.promise(responsePromise, {
