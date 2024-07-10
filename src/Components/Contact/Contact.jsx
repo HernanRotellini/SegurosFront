@@ -3,7 +3,7 @@ import {toast} from 'sonner'
 import { animateScroll as scroll } from 'react-scroll';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-
+import axios from 'axios';
 // eslint-disable-next-line no-undef
 const key = process.env.REACT_APP_EMAIL_TOKEN;
 // eslint-disable-next-line no-undef
@@ -76,7 +76,9 @@ const Contact = ({ subject, setSubject }) => {
       fileRef.current.click();
     }
   };
-  const onSubmit = async (event) => {
+  
+
+const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", input.name);
@@ -101,25 +103,22 @@ const Contact = ({ subject, setSubject }) => {
     }
 
     try {
-      
+        await new Promise(resolve => setTimeout(resolve, 25000)); // Retraso de 25 segundos
 
-        const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
-            method: "POST",
-            body: formData
+        const response = await axios.post(`${BACKEND_URL}/UrgentMailer`, formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
         });
 
-        toast.promise(responsePromise, {
+        toast.promise(Promise.resolve(response), {
             loading: "Enviando...",
             success: "Mensaje enviado",
             error: "Error al enviar mensaje"
         });
-        const response = await responsePromise;
-        if (!response.ok) {
-            toast.error("Error al enviar mensaje");
-        }
 
-        const result = await response.json();
-        result.finally(() => {
+        if (response.status === 200) {
+            // Resetear formulario si la respuesta es exitosa
             setFiles([]);
             setInput({
                 name: "",
@@ -129,12 +128,15 @@ const Contact = ({ subject, setSubject }) => {
             setSubject("");
             setPreviews([]);
             scroll.scrollToTop({ duration: 500 });
-        });
+        } else {
+            toast.error("Error al enviar mensaje");
+        }
     } catch (error) {
         console.error(error);
         toast.error("Error al enviar e-mail");
     }
 };
+
 
   return (
     <div
