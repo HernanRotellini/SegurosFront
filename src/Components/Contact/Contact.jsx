@@ -101,8 +101,7 @@ const Contact = ({ subject, setSubject }) => {
     }
 
     try {
-        // Añadir un retraso si es necesario
-       // Retraso de 25 segundos
+      
 
         const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
             method: "POST",
@@ -114,7 +113,6 @@ const Contact = ({ subject, setSubject }) => {
             success: "Mensaje enviado",
             error: "Error al enviar mensaje"
         });
-        await new Promise(resolve => setTimeout(resolve, 25000));
         const response = await responsePromise;
         if (!response.ok) {
             toast.error("Error al enviar mensaje");
