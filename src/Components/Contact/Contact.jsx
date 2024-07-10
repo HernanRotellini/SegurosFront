@@ -85,58 +85,49 @@ const Contact = ({ subject, setSubject }) => {
     formData.append("message", input.message);
     formData.append("bool", containKey);
     if (files.length > 0) {
-        files.forEach((file) => {
-            formData.append("files[]", file);
-        });
+      
+      files.forEach( (file) => {
+       formData.append("files[]", file);
+      });
     }
-
-    const delay = (ms) => new Promise(resolve => setTimeout(resolve, ms));
-
-    console.log('Archivos a enviar:', files); // Verificar los archivos a enviar
-
+   
     try {
-        await delay(25000); // Retraso de 25 segundos
-
-        const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
-            method: "POST",
-            body: formData
-        });
-
-        for (const [key, value] of formData.entries()) {
-            if (key === 'files[]') {
-                console.log('Files:', value); // Esto registra el array de archivos cargados
-            }
+      const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
+        
+        method: "POST",
+        body: formData
+      })
+      for (const [key, value] of formData.entries()) {
+        if (key === 'files[]') {
+          console.log('Files:', value); 
         }
-
-        toast.promise(responsePromise, {
-            loading: "Enviando...",
-            success: "Mensaje enviado",
-            error: "Error al enviar mensaje"
+      }
+      toast.promise(responsePromise, {
+        loading: "Enviando...",
+        success: "Mensaje enviado",
+        error: "Error al enviar mensaje"
+      })
+      const response = await responsePromise;
+      if(!response.ok){
+        toast.error("Error al enviar mensaje")
+      }
+      const result = response.json();
+      result.finally(() => {
+        setFiles([]);
+        setInput({
+          name: "",
+          email: "",
+          message: ""
         });
-
-        const response = await responsePromise;
-        if (!response.ok) {
-            toast.error("Error al enviar mensaje");
-        }
-
-        const result = await response.json();
-        result.finally(() => {
-            setFiles([]);
-            setInput({
-                name: "",
-                email: "",
-                message: ""
-            });
-            setSubject("");
-            setPreviews([]);
-            scroll.scrollToTop({ duration: 500 });
-        });
+        setSubject("");
+        setPreviews([]);
+        scroll.scrollToTop({duration: 500})
+      })
     } catch (error) {
-        console.error(error);
-        toast.error("Error al enviar e-mail");
+      console.error(error);
+      toast.error("Error al enviar e-mail")
     }
-};
-
+  };
   return (
     <div
       id="contact"
