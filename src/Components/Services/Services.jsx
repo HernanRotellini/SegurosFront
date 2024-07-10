@@ -57,7 +57,7 @@ const Services = ({setSubject, setActiveSection}) => {
           >
             <div className="relative cursor-pointer">
               <ScrollLink to="contact" offset={-96} smooth={true} duration={500} spy={true}>
-              <div onClick={() => handleClick(name === 'Siniestro vehicular'  ? `Denuncia ${name}`:`Cotización de Seguro ${name}`)} className="absolute flex justify-center items-center w-full h-full rounded-lg opacity-0 hover:opacity-100 bg-white/70 backdrop-blur-sm transition-all duration-200 text-[#3E3E3E] font-bold text-lg">{name === 'Siniestro vehicular'  ? `DENUNCIAR`:`PEDIR COTIZACIÓN`}</div>
+              <div onClick={() => handleClick(name === 'Denuncia Siniestros'  ? `Denuncia ${name}`:`Cotización de Seguro ${name}`)} className="absolute flex justify-center items-center w-full h-full rounded-lg opacity-0 hover:opacity-100 bg-white/70 backdrop-blur-sm transition-all duration-200 text-[#3E3E3E] font-bold text-lg">{name === 'Siniestro vehicular'  ? `DENUNCIAR`:`PEDIR COTIZACIÓN`}</div>
               
               <img
                 src={image}
