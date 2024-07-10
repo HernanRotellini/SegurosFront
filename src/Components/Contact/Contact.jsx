@@ -90,19 +90,14 @@ const Contact = ({ subject, setSubject }) => {
        formData.append("files[]", file);
       });
     }
-    console.log(files.length);
-    // if (files.length > 0) {
-    //   files.forEach((file, i) => {
-    //     formData.append(`file${i}`, file);
-    //   });
-    // }
+   
     try {
       const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
         
         method: "POST",
         body: formData
       })
-    
+    console.log(formData);
       toast.promise(responsePromise, {
         loading: "Enviando...",
         success: "Mensaje enviado",
