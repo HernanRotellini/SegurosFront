@@ -3,7 +3,7 @@ import {toast} from 'sonner'
 import { animateScroll as scroll } from 'react-scroll';
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import axios from 'axios';
+
 // eslint-disable-next-line no-undef
 const key = process.env.REACT_APP_EMAIL_TOKEN;
 // eslint-disable-next-line no-undef
@@ -88,55 +88,45 @@ const onSubmit = async (event) => {
     formData.append("bool", containKey);
     
     if (files.length > 0) {
-        files.forEach((file) => {
-            formData.append("files[]", file);
-        });
+      files.forEach((file) => {
+        formData.append("files[]", file);
+      });
     }
 
-    // Logs para verificar los archivos añadidos a FormData
-    for (const [key, value] of formData.entries()) {
-        if (key === 'files[]') {
-            console.log(`Key: ${key}, File name: ${value.name}, File size: ${value.size}`);
-        } else {
-            console.log(`Key: ${key}, Value: ${value}`);
+
+  
+     
+      try {
+        const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
+          method: "POST",
+          body: formData
+        })
+        toast.promise(responsePromise, {
+          loading: "Enviando...",
+          success: "Mensaje enviado",
+          error: "Error al enviar mensaje"
+        })
+        const response = await responsePromise;
+        if(!response.ok){
+          toast.error("Error al enviar mensaje")
         }
-    }
-
-    try {
-        await new Promise(resolve => setTimeout(resolve, 25000)); // Retraso de 25 segundos
-
-        const response = await axios.post(`${BACKEND_URL}/UrgentMailer`, formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data'
-            }
-        });
-
-        toast.promise(Promise.resolve(response), {
-            loading: "Enviando...",
-            success: "Mensaje enviado",
-            error: "Error al enviar mensaje"
-        });
-
-        if (response.status === 200) {
-            // Resetear formulario si la respuesta es exitosa
-            setFiles([]);
-            setInput({
-                name: "",
-                email: "",
-                message: ""
-            });
-            setSubject("");
-            setPreviews([]);
-            scroll.scrollToTop({ duration: 500 });
-        } else {
-            toast.error("Error al enviar mensaje");
-        }
-    } catch (error) {
+        const result = response.json();
+        result.finally(() => {
+          setFiles([]);
+          setInput({
+            name: "",
+            email: "",
+            message: ""
+          });
+          setSubject("");
+          setPreviews([]);
+          scroll.scrollToTop({duration: 500})
+        })
+      } catch (error) {
         console.error(error);
-        toast.error("Error al enviar e-mail");
-    }
-};
-
+        toast.error("Error al enviar e-mail")
+      }
+    };
 
   return (
     <div
