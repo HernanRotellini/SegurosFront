@@ -8,10 +8,13 @@ import Services from './Components/Services/Services';
 import Contact from './Components/Contact/Contact';
 
 function App() {
+  
   const [loading, setLoading] = useState(true);
   const [activeSection, setActiveSection] = useState("home");
   const [subject, setSubject] = useState('');
-  
+  useEffect(() => {
+    document.title = 'Grupo Oeste Seguros';
+  }, []);
   useEffect(() => {
     const time = setTimeout(() => {
       setLoading(false);
