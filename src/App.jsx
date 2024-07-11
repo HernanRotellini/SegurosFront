@@ -6,7 +6,7 @@ import Home from './Components/Home/Home';
 import Companies from './Components/Companies/Companies';
 import Services from './Components/Services/Services';
 import Contact from './Components/Contact/Contact';
-import { Favicon } from 'react-favicon';
+
 
 function App() {
   
@@ -15,11 +15,7 @@ function App() {
   const [subject, setSubject] = useState('');
   useEffect(() => {
     document.title = 'Grupo Oeste';
-    const favicon = new Favicon({
-      src: '/seguros-icon.svg',
-      sizes: ['16x16', '32x32', '64x64'],
-    });
-    favicon.apply();
+  
   }, []);
   useEffect(() => {
     const time = setTimeout(() => {
