@@ -16,11 +16,11 @@ const SERVICES_CARDS = [
   },
   {
     name: "Mala Práxis",
-    image: "/sancor-seguros.png",
+    image: "/malapraxis.png",
   },
   {
     name: "Sepelios",
-    image: "/sancor-seguros.png",
+    image: "/sepelios.png",
   },
   {
     name: "Riesgo Cibernético",

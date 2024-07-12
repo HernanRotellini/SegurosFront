@@ -9,7 +9,7 @@ const key = process.env.REACT_APP_EMAIL_TOKEN;
 // eslint-disable-next-line no-undef
 const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const SERVICES_OPTIONS = [
-  "Siniestro vehicular",
+  "Siniestro Vehicular",
   "Seguro Vehicular",
   "Seguro Hogar",
   "Seguro Mala práxis",
