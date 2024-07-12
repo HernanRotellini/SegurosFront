@@ -35,7 +35,12 @@ const SERVICES_CARDS = [
     image: "/salud.jpg",
   },
 ];
-
+const customImgStyle = {
+  width: '12rem',  // Ajusta esto según tus necesidades
+  height: '9.5rem', // Ajusta esto según tus necesidades
+  objectFit: 'cover', // Mantiene las proporciones
+  borderRadius: '0.5rem' // Equivalente a rounded-lg
+};
 // eslint-disable-next-line react/prop-types
 const Services = ({ setSubject, setActiveSection }) => {
   const handleClick = (subject) => {
@@ -80,7 +85,7 @@ const Services = ({ setSubject, setActiveSection }) => {
                 <img
                   src={image}
                   alt={name}
-                  className="w-44 h-38 object-cover rounded-lg"
+                  style={customImgStyle}
                 />
               </ScrollLink>
             </div>
