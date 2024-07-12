@@ -171,7 +171,7 @@ const onSubmit = async (event) => {
               Asunto
             </option>
             {SERVICES_OPTIONS.map((service, i) => (
-              service == "Siniestro vehicular" ?
+              service == "Siniestro Vehicular" ?
               <option
                 key={i}
                 value={`Denuncia ${service}`}

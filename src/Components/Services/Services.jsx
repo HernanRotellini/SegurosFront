@@ -80,7 +80,7 @@ const Services = ({ setSubject, setActiveSection }) => {
                 <img
                   src={image}
                   alt={name}
-                  className="w-48 h-48 object-cover rounded-lg"
+                  className="w-40 h-40 object-cover rounded-lg"
                 />
               </ScrollLink>
             </div>
