@@ -31,7 +31,7 @@ function App() {
     };
 
     // Establece el nuevo favicon
-    setFavicon('/seguros-icon.svg');
+    setFavicon('/logoapp.png');
   }, []);
   useEffect(() => {
     const time = setTimeout(() => {
