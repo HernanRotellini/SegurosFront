@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
-import {toast} from 'sonner'
-import { animateScroll as scroll } from 'react-scroll';
+import { toast } from "sonner";
+import { animateScroll as scroll } from "react-scroll";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 
@@ -76,9 +76,8 @@ const Contact = ({ subject, setSubject }) => {
       fileRef.current.click();
     }
   };
-  
 
-const onSubmit = async (event) => {
+  const onSubmit = async (event) => {
     event.preventDefault();
     const formData = new FormData();
     formData.append("name", input.name);
@@ -86,47 +85,44 @@ const onSubmit = async (event) => {
     formData.append("subject", subject);
     formData.append("message", input.message);
     formData.append("bool", containKey);
-    
+
     if (files.length > 0) {
       files.forEach((file) => {
         formData.append("files[]", file);
       });
     }
 
-
-  
-     
-      try {
-        const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
-          method: "POST",
-          body: formData
-        })
-        toast.promise(responsePromise, {
-          loading: "Enviando...",
-          success: "Mensaje enviado",
-          error: "Error al enviar mensaje"
-        })
-        const response = await responsePromise;
-        if(!response.ok){
-          toast.error("Error al enviar mensaje")
-        }
-        const result = response.json();
-        result.finally(() => {
-          setFiles([]);
-          setInput({
-            name: "",
-            email: "",
-            message: ""
-          });
-          setSubject("");
-          setPreviews([]);
-          scroll.scrollToTop({duration: 500})
-        })
-      } catch (error) {
-        console.error(error);
-        toast.error("Error al enviar e-mail")
+    try {
+      const responsePromise = fetch(`${BACKEND_URL}/UrgentMailer`, {
+        method: "POST",
+        body: formData,
+      });
+      toast.promise(responsePromise, {
+        loading: "Enviando...",
+        success: "Mensaje enviado",
+        error: "Error al enviar mensaje",
+      });
+      const response = await responsePromise;
+      if (!response.ok) {
+        toast.error("Error al enviar mensaje");
       }
-    };
+      const result = response.json();
+      result.finally(() => {
+        setFiles([]);
+        setInput({
+          name: "",
+          email: "",
+          message: "",
+        });
+        setSubject("");
+        setPreviews([]);
+        scroll.scrollToTop({ duration: 500 });
+      });
+    } catch (error) {
+      console.error(error);
+      toast.error("Error al enviar e-mail");
+    }
+  };
 
   return (
     <div
@@ -170,18 +166,19 @@ const onSubmit = async (event) => {
             <option disabled value="">
               Asunto
             </option>
-            {SERVICES_OPTIONS.map((service, i) => (
-              service == "Siniestro Vehicular" ?
-              <option
-                key={i}
-                value={`Denuncia ${service}`}
-              >{`Denuncia ${service}`}</option>
-              :
-              <option
-                key={i}
-                value={`Cotización de ${service}`}
-              >{`Cotización de ${service}`}</option>
-            ))}
+            {SERVICES_OPTIONS.map((service, i) =>
+              service == "Siniestro Vehicular" ? (
+                <option
+                  key={i}
+                  value={`Denuncia ${service}`}
+                >{`Denuncia ${service}`}</option>
+              ) : (
+                <option
+                  key={i}
+                  value={`Cotización de ${service}`}
+                >{`Cotización de ${service}`}</option>
+              )
+            )}
           </select>
           <textarea
             name="message"
@@ -257,9 +254,11 @@ const onSubmit = async (event) => {
                     <p className="truncate">{files[i]?.name}</p>
                     <button
                       type="button"
-                      className="absolute top-1 right-1 z-50 bg-red-600 rounded-full w-4 h-4 flex justify-center items-center cursor-pointer"
+                      className="absolute top-1 right-1 z-50 bg-red-600 text-white rounded-full w-4 h-4 flex justify-center items-center cursor-pointer"
                       onClick={() => handleRemoveFile(i)}
-                    ></button>
+                    >
+                      ×
+                    </button>
                   </div>
                 </SwiperSlide>
               ))}
