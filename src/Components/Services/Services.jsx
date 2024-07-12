@@ -1,5 +1,5 @@
 import { services } from "../texts";
-import {Link as ScrollLink} from 'react-scroll';
+import { Link as ScrollLink } from "react-scroll";
 
 const SERVICES_CARDS = [
   {
@@ -37,12 +37,11 @@ const SERVICES_CARDS = [
 ];
 
 // eslint-disable-next-line react/prop-types
-const Services = ({setSubject, setActiveSection}) => {
-
+const Services = ({ setSubject, setActiveSection }) => {
   const handleClick = (subject) => {
     setSubject(subject);
-    setActiveSection('contact')
-  }
+    setActiveSection("contact");
+  };
   return (
     <div
       id="services"
@@ -56,14 +55,33 @@ const Services = ({setSubject, setActiveSection}) => {
             className="w-[200px] h-max flex flex-col justify-center items-center p-2 gap-2 bg-white rounded-lg"
           >
             <div className="relative cursor-pointer">
-              <ScrollLink to="contact" offset={-96} smooth={true} duration={500} spy={true}>
-              <div onClick={() => handleClick(name === 'Denuncia Siniestros'  ? `Denuncia ${name}`:`Cotización de Seguro ${name}`)} className="absolute flex justify-center items-center w-full h-full rounded-lg opacity-0 hover:opacity-100 bg-white/70 backdrop-blur-sm transition-all duration-200 text-[#3E3E3E] font-bold text-lg">{name === 'Denuncia Siniestros'  ? `DENUNCIAR`:`PEDIR COTIZACIÓN`}</div>
-              
-              <img
-                src={image}
-                alt={name}
-                className="w-full h-full rounded-lg"
-              />
+              <ScrollLink
+                to="contact"
+                offset={-96}
+                smooth={true}
+                duration={500}
+                spy={true}
+              >
+                <div
+                  onClick={() =>
+                    handleClick(
+                      name === "Denuncia Siniestros"
+                        ? `Denuncia ${name}`
+                        : `Cotización de Seguro ${name}`
+                    )
+                  }
+                  className="absolute flex justify-center items-center w-full h-full rounded-lg opacity-0 hover:opacity-100 bg-white/70 backdrop-blur-sm transition-all duration-200 text-[#3E3E3E] font-bold text-lg"
+                >
+                  {name === "Denuncia Siniestros"
+                    ? `DENUNCIAR`
+                    : `PEDIR COTIZACIÓN`}
+                </div>
+
+                <img
+                  src={image}
+                  alt={name}
+                  className="w-48 h-48 object-cover rounded-lg"
+                />
               </ScrollLink>
             </div>
             <h3>{name}</h3>
