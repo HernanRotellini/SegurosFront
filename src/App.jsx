@@ -15,7 +15,23 @@ function App() {
   const [subject, setSubject] = useState('');
   useEffect(() => {
     document.title = 'Grupo Oeste';
-  
+
+    // Función para cambiar el favicon
+    const setFavicon = (url) => {
+      const link = document.createElement('link');
+      const oldLink = document.querySelector('link[rel="icon"]');
+
+      link.rel = 'icon';
+      link.href = url;
+
+      if (oldLink) {
+        document.head.removeChild(oldLink);
+      }
+      document.head.appendChild(link);
+    };
+
+    // Establece el nuevo favicon
+    setFavicon('/seguros-icon.svg');
   }, []);
   useEffect(() => {
     const time = setTimeout(() => {
