@@ -9,6 +9,10 @@ const companies = [
     image: "/sancor-seguros.png",
   },
   {
+    name: "Noble Compañia de Seguros",
+    image: "/Noble-SA.png",
+  },
+  {
     name: "Grupo Sancor Seguros",
     image: "/grupo-sancor-seguros.jpeg",
   },
